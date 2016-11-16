@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Login" >
+
+    <ImageButton
+        android:id="@+id/imvwnext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:contentDescription="@string/next"
+        android:onClick="next"
+        android:src="@drawable/next" />
+    
+    <EditText
+        android:id="@+id/txtluser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtactnamelogin"
+        android:layout_alignRight="@+id/imvwnext"
+        android:layout_below="@+id/txtactnamelogin"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/txtfd_background"
+        android:ems="10"
+        android:hint="@string/usernameh"
+        android:inputType="text"
+        android:lines="1"
+        android:paddingLeft="9.0dip"
+        android:paddingRight="9.0dip"
+        android:textColor="@android:color/black"
+        android:textSize="14.0sp" />
+
+        
+
+    <EditText
+        android:id="@+id/txtlpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtluser"
+        android:layout_alignRight="@+id/imvwnext"
+        android:layout_below="@+id/txtluser"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/txtfd_background"
+        android:ems="10"
+        android:hint="@string/passwordh"
+        android:inputType="textPassword"
+        android:lines="1"
+        android:paddingLeft="9.0dip"
+        android:paddingRight="9.0dip"
+        android:textColor="@android:color/black"
+        android:textSize="14.0sp" />
+
+    <TextView
+        android:id="@+id/txtactnamelogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="26dp"
+        android:text="@string/actnamelogin"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic" />
+
+</RelativeLayout>

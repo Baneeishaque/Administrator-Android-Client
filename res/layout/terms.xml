@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Terms" >
+
+  
+    <WebView
+        android:id="@+id/wbvwlicense"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bsubmit"
+        android:layout_below="@+id/bexit"
+        android:background="@null" />
+
+    <Button
+        android:id="@+id/bexit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bsubmit"
+        android:layout_alignBottom="@+id/bsubmit"
+        android:layout_alignRight="@+id/wbvwlicense"
+        android:layout_toRightOf="@+id/chkbaccept"
+        android:text="@string/reject" />
+
+    <TextView
+        android:id="@+id/txtactname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/chkbaccept"
+        android:layout_alignParentTop="true"
+        android:text="@string/actnameterms"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/bsubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/chkbaccept"
+        android:layout_below="@+id/chkbaccept"
+        android:text="@string/accept" />
+
+    <CheckBox
+        android:id="@+id/chkbaccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtactname"
+        android:layout_marginTop="29dp"
+        android:text="@string/termscheckbox" />
+</RelativeLayout>

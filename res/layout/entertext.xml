@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:padding="10dip"
+	android:orientation="vertical"
+		>
+
+	<EditText
+	    android:id="@+id/textEnterText"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/txtfd_back_draw"
+	    android:lines="2"
+	    android:minEms="18"
+	    android:paddingLeft="9.0dip"
+        android:paddingRight="9.0dip"
+        android:textColor="@android:color/black"
+        android:textSize="14.0sp"  />
+
+	<LinearLayout android:id="@+id/LinearLayout01" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+
+		<Button
+		    android:id="@+id/buttonSendText"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="Send It" >
+</Button>
+		<LinearLayout android:gravity="right" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+
+			<ImageButton
+			    android:id="@+id/buttonPreviousEntry"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:gravity="right|center_vertical"
+			    android:src="@android:drawable/arrow_up_float"
+			    android:visibility="invisible" />
+
+			<ImageButton
+			    android:id="@+id/buttonNextEntry"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:gravity="right|center_vertical"
+			    android:src="@android:drawable/arrow_down_float"
+			    android:visibility="invisible" />
+
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="12dp"/>
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:gravity="bottom" android:orientation="horizontal">
+
+		<Button
+		    android:id="@+id/buttonSendWithoutSaving"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/button_send_without_saving"
+		    android:visibility="invisible" />
+
+		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="right|center_vertical">
+
+			<ImageButton
+			    android:id="@+id/buttonTextDelete"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:src="@android:drawable/ic_menu_delete"
+			    android:visibility="invisible" />
+
+		</LinearLayout>
+	</LinearLayout>
+
+</LinearLayout>
