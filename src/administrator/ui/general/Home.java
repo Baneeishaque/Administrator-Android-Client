@@ -11,41 +11,48 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RemoteViews;
 
 public class Home extends Activity {
 	public static final int admin = 0;
+//	private static final String TAG = "Administartor Android Client";
 	/** Identifier for the notification. */
 	private static int NOTIF_ID = 'S' << 24 + 'd' << 16 + 'k' << 8 + 'C' << 0;
+	NotificationManager nm;
 
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 
-		NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-		String text = "Administrator is Active";
-
-		// Note: Notification is marked as deprecated -- in API 11+ there's a
-		// new Builder class
-		// but we need to have API 7 compatibility so we ignore that warning.
-
-		Notification n = new Notification(R.drawable.launcher, text, System.currentTimeMillis());
-		n.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_NO_CLEAR;
-		Intent intent = new Intent(this, Home.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+		nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		Intent home_intent = new Intent(this, Home.class);
+		home_intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		PendingIntent pi = PendingIntent.getActivity(this, // context
 				0, // requestCode
-				intent, // intent
+				home_intent, // intent
 				0 // pending intent flags
 		);
-		n.setLatestEventInfo(this, text, text, pi);
-
+		
+		
+		
+		NotificationCompat.Builder mBuilder =
+			    new NotificationCompat.Builder(this)
+			    .setSmallIcon(R.drawable.launcher)
+			    .setContentTitle("Administartor")
+			    .setContentText("Administrator is Active")
+			    .setContentIntent(pi); //Required on Gingerbread and below
+		
+		Notification n =mBuilder.build();
+		n.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_NO_CLEAR;
+		
 		nm.notify(NOTIF_ID, n);
+		
 	}
 
 	@Override
@@ -70,6 +77,7 @@ public class Home extends Activity {
 			Intent intent = new Intent(Intent.ACTION_MAIN);
 			intent.addCategory(Intent.CATEGORY_HOME);
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			nm.cancel(NOTIF_ID);
 			startActivity(intent);
 			return true;
 
@@ -91,6 +99,7 @@ public class Home extends Activity {
 	}
 
 	public void network(View view) {
+		
 		startActivity(new Intent(Settings.ACTION_SETTINGS));
 	}
 
@@ -99,9 +108,18 @@ public class Home extends Activity {
 
 	}
 
-	public void onDestroy() {
-		NotificationManager nsm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-		nsm.cancel(NOTIF_ID);
-	}
+//	@Override
+//	protected void onStop() {
+//	    Log.w(TAG, "App stopped");
+//	    super.onStop();
+//	}
+//
+//	@Override
+//	protected void onDestroy() {
+//	    Log.w(TAG, "App destroyed");
+//	    super.onDestroy();
+//	}
+	
+	
 
 }
